@@ -23,14 +23,22 @@ export default function Main() {
         alert('Не вдалось отримати данні!');
       });
   }, []);
-  const onChangeFirstValue = useCallback((value)=> {
-    setFirstForm(value);
-    console.log(firstForm);
-    const price = value / ratesRes.current[firstSelect];
-    const result = (price * ratesRes.current[secondSelect]);
-    setSecondForm(result);
+  const onChangeFirstValue = useCallback((value) => {
+    if (value < 0) {
+      alert('Введіть число більше 0!!');
+      return;
+    }
+      setFirstForm(value);
+      const price = value / ratesRes.current[firstSelect];
+      const result = (price * ratesRes.current[secondSelect]);
+      setSecondForm(result);
+    
   },[firstForm, firstSelect, secondSelect])
   function onChangeSecondValue(value) {  
+        if (value < 0) {
+          alert('Введіть число більше 0!!');
+          return;
+        }
     const result =(ratesRes.current[firstSelect] / ratesRes.current[secondSelect]) * value;
     const resultFix = result
     setFirstForm(resultFix);
