@@ -36,6 +36,7 @@ export default function Main() {
     setFirstForm(resultFix);
     setSecondForm(value);
   }
+  // для виводу данних можна використати toFixed(),  але потім функція перераховує введене поле 2 раз, вирішити цю проблему нажаль не змогла(
   useEffect(() => {
     onChangeFirstValue(firstForm);
   }, [firstForm, onChangeFirstValue]);
