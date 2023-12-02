@@ -33,7 +33,7 @@ export default function Main() {
       const result = (price * ratesRes.current[secondSelect]);
       setSecondForm(result);
     
-  },[firstForm, firstSelect, secondSelect])
+  },[ firstSelect, secondSelect])
   function onChangeSecondValue(value) {  
         if (value < 0) {
           alert('Введіть число більше 0!!');
